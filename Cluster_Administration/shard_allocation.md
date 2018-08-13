@@ -1,6 +1,8 @@
 # Shard Allocation #
 
 ##  Cluster Level Shard Allocation ##
+Configuration setting
+
 When does this happen? During:
 * Initial Recovery
 * Replica Allocation
