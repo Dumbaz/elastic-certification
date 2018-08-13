@@ -7,7 +7,7 @@ When does this happen? During:
 * Initial Recovery
 * Replica Allocation
 * Rebalancing
-* Change in nodes of the cluster
+* Change in the amount of nodes of the cluster
 
 [Documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/shards-allocation.html)
 
