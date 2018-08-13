@@ -49,3 +49,16 @@ curl -X POST "localhost:9200/_cluster/reroute" -H 'Content-Type: application/jso
 }
 '
 ```
+
+## Shard Allocation Awareness ##
+Configuration setting
+
+[Documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/allocation-awareness.html)
+
+When does this happen? During:
+* Initial shard creation
+
+Why do I want this?
+* Different firezones in a data center
+* Heterogenous server configurations (higher and lower performing)
+* Hot/Warm architecture
