@@ -62,3 +62,35 @@ Why do I want this?
 * Different firezones in a data center
 * Heterogenous server configurations (higher and lower performing)
 * Hot/Warm architecture
+
+## Diagnose Shard Issues, repair Cluster Health ##
+1. Use Cluster Allocation Explain API. [Documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster-allocation-explain.html)
+
+```
+GET /_cluster/allocation/explain
+{
+  "index": "myindex",
+  "shard": 0,
+  "primary": true,
+  "current_node": "optionalNodeName"
+}
+```
+
+Optional parameters:
+```
+?include_disk_info=true
+?include_yes_decisions=true
+```
+
+Possible reasons for the failure:
+* Allocation not allowed on any node
+* Primary Shard that had already been defined has been lost
+* Shard is still not timed out (Node may rejoin the cluster before timeout)
+* Shard not allowed to exist on current node (firezones, balancing reasons) but no other node to reallocate to
+* No better balancing possibility after shard moves to another node
+* Rebalancing turned off
+* Filters leave no valid choice for allocation
+
+
+### Documentation and Blog Posts ###
+[Blog: Cluster Allocation Explain API](https://www.elastic.co/blog/red-elasticsearch-cluster-panic-no-longer)
