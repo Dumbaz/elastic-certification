@@ -104,8 +104,12 @@ GET _cluster/health?level=indices&pretty
 _cat/shards
 ```
 
+3. Background Information
+Allocators and Deciders do the work behind the shard creation and balancing. Allocators seek and create a list of desirable nodes to move data to, deciders pick one of these based upon the criteria.
+
 
 ### Documentation and Blog Posts ###
 [Blog: Cluster Allocation Explain API](https://www.elastic.co/blog/red-elasticsearch-cluster-panic-no-longer)
 [Blog: Repair unassigned Shards](https://www.datadoghq.com/blog/elasticsearch-unassigned-shards/)
+[Blog: Cluster Allocation Explain API](https://qbox.io/blog/unassigned-shards-elasticsearch-cluster-allocation-explain-api)
 [Blog: Failed Shard Recovery](http://www.jillesvangurp.com/2015/02/18/elasticsearch-failed-shard-recovery/)
