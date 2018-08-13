@@ -90,7 +90,22 @@ Possible reasons for the failure:
 * No better balancing possibility after shard moves to another node
 * Rebalancing turned off
 * Filters leave no valid choice for allocation
+* Too many shards, not enough nodes to allocate to
+* Shard data no longer exists anywhere in the cluster
+* Low/high disk watermark
+* Different versions of elasticsearch
+* Split brain Issue
+
+2. Further APIs to query
+```
+GET _cat/recovery?v
+GET _cluster/health
+GET _cluster/health?level=indices&pretty
+_cat/shards
+```
 
 
 ### Documentation and Blog Posts ###
 [Blog: Cluster Allocation Explain API](https://www.elastic.co/blog/red-elasticsearch-cluster-panic-no-longer)
+[Blog: Repair unassigned Shards](https://www.datadoghq.com/blog/elasticsearch-unassigned-shards/)
+[Blog: Failed Shard Recovery](http://www.jillesvangurp.com/2015/02/18/elasticsearch-failed-shard-recovery/)
